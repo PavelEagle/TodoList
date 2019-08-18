@@ -19,11 +19,29 @@ constructor(props){
 
     render() {
         let todoEntries = this.props.entries;
-        let listItems = todoEntries.map(this.createTasks)
+        let listItems = todoEntries.map(this.createTasks);
+        const customEnterAnimation = {
+            from: {opacity: 0, 
+                transform: 'translate(30px,10px)', 
+                filter: 'blur(10px)'},
+            to: {opacity: 1, 
+                transform: 'translate(0px)',
+                filter: 'blur(0px) drop-shadow(4px 4px 5px black)'} 
+        }
+
+        const customLeaveAnimation = {
+            from: {opacity: 1, 
+                transform: 'translate(0px)',
+                filter: 'blur(0px) drop-shadow(4px 4px 5px black)',
+                backgroundColor: 'rgba(179, 97, 3, 0.76)'} ,
+            to: {opacity: 0, 
+                transform: 'translate(30px,-10px)', 
+                filter: 'blur(10px)'}
+        }
 
         return (
             <ul className = "theList">
-            <FlipMove duration={250} easing = "ease-out">
+            <FlipMove duration={1000} enterAnimation={customEnterAnimation} leaveAnimation={customLeaveAnimation}>
                 {listItems}
             </FlipMove>
             </ul>

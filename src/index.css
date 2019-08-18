@@ -1,11 +1,15 @@
 body {
     padding: 50px;
-    background-color: #66ccff;
+    background-color: #f7cea0;
+    background-image: url(./background.jpg);
     font-family: sans-serif;
-
+    position: relative;
 }
 
 #container {
+    position: absolute;
     display: flex;
     justify-content: flex;
+    align-content: center;
+    margin-left: 30em;
 }
