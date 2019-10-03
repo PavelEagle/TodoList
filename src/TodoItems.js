@@ -22,7 +22,7 @@ constructor(props){
         let listItems = todoEntries.map(this.createTasks);
         const customEnterAnimation = {
             from: {opacity: 0, 
-                transform: 'translate(30px,10px)', 
+                transform: 'translate(30px,7px)', 
                 filter: 'blur(10px)'},
             to: {opacity: 1, 
                 transform: 'translate(0px)',
@@ -41,7 +41,10 @@ constructor(props){
 
         return (
             <ul className = "theList">
-            <FlipMove duration={1000} enterAnimation={customEnterAnimation} leaveAnimation={customLeaveAnimation}>
+            <FlipMove duration={1000} 
+                    easing={'cubic-bezier(0.25, 0.5, 0.75, 1)'}
+                    enterAnimation={customEnterAnimation} 
+                    leaveAnimation={customLeaveAnimation}>
                 {listItems}
             </FlipMove>
             </ul>
